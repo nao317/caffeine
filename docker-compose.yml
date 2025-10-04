@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8080"
+    volumes:
+      - .:/app
+    environment:
+      APP_ENV: local
+      APP_DEBUG: 1
+      APP_KEY: base64:m47P1fipnc1ZmkGHAmMPeyPAQUiIv0hwXOmCyK+9VyM=
+      
