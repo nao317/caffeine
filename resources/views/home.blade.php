@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title inertia>Caffeine</title>
     @viteReactRefresh
-    @vite('resources/js/app.tsx')
+    @vite('resources/js/pages/home.tsx')
     @inertiaHead
 </head>
 
