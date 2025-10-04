@@ -52,11 +52,19 @@ export default function ProfilePage() {
                     プロフィール
                 </h1>
                 <div className="flex flex-col items-center">
-                    <img
-                        src={profile.avatar_url || "/default-avatar.png"}
-                        alt="avatar"
-                        className="w-24 h-24 rounded-full mb-4 object-cover"
-                    />
+                    <div className="w-24 h-24 rounded-full mb-4 bg-gray-300 flex items-center justify-center">
+                        {profile.avatar_url ? (
+                            <img
+                                src={profile.avatar_url}
+                                alt="avatar"
+                                className="w-24 h-24 rounded-full object-cover"
+                            />
+                        ) : (
+                            <svg className="w-12 h-12 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                            </svg>
+                        )}
+                    </div>
                     <p className="text-lg font-semibold">{profile.username}</p>
                     <p className="text-gray-500 mt-2">{profile.bio || "自己紹介はまだありません。"}</p>
                 </div>

@@ -22,5 +22,3 @@ Route::get('/dashboard', function() {
 Route::get('/profile', function () {
     return Inertia::render('profile');
 })->name('profile');
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
