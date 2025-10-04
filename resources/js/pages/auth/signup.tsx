@@ -7,6 +7,7 @@ export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirm, setConfirm] = useState('');
+    const [username, setUsername] = useState(''); // ユーザー名追加
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
 
@@ -20,18 +21,41 @@ export default function Signup() {
             return;
         }
 
-        const { error } = await supabase.auth.signUp({
+        // 1. Supabase Auth にユーザー登録
+        const { data: authData, error: authError } = await supabase.auth.signUp({
             email,
             password,
+            options: {
+                data: { username } // ユーザーメタデータに username 保存
+            }
         });
 
-        if (error) {
-            setError(error.message);
-        } else {
-            setMessage('登録完了！確認メールをチェックしてください。');
-            // サインアップ完了後はログインページに誘導する場合
-            Inertia.visit('/login');
+        if (authError || !authData.user) {
+            setError(authError?.message || 'サインアップに失敗しました');
+            return;
         }
+
+        const user = authData.user;
+
+        // 2. profiles テーブルにユーザー行を作成
+        const { error: profileError } = await supabase
+            .from('profiles')
+            .insert([
+                {
+                    id: user.id,
+                    username,
+                    email,
+                    avatar_url: null
+                }
+            ]);
+
+        if (profileError) {
+            setError('profiles 作成に失敗しました: ' + profileError.message);
+            return;
+        }
+
+        setMessage('登録完了！確認メールをチェックしてください。');
+        Inertia.visit('/login');
     };
 
     return (
@@ -39,7 +63,13 @@ export default function Signup() {
             <h1>サインアップ</h1>
             <p>カフェ投稿を始めるにはアカウント登録してください。</p>
 
-            <form onSubmit={handler_Submit} style={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '12px' }}>
+            <form className="signup-form" onSubmit={handler_Submit}>
+                <input
+                    type="text"
+                    placeholder="ユーザー名"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                />
                 <input
                     type="email"
                     placeholder="メールアドレス"
@@ -60,7 +90,7 @@ export default function Signup() {
                 />
 
                 {error && <div className="error">{error}</div>}
-                {message && <div style={{ color: '#fff', marginBottom: '16px' }}>{message}</div>}
+                {message && <div className="message">{message}</div>}
 
                 <button type="submit" className="btn btn-signup">Sign Up</button>
             </form>
