@@ -14,3 +14,11 @@ Route::get('/login', function() {
 Route::get('/signup', function() {
     return Inertia::render('auth/signup');
 })->name('signup');
+
+Route::get('/dashboard', function() {
+    return Inertia::render('dashboard');
+})->name('dashboard');
+
+Route::get('/profile', function () {
+    return Inertia::render('profile');
+})->name('profile');

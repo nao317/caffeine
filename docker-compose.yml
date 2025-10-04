@@ -6,7 +6,10 @@ services:
     volumes:
       - .:/app
     environment:
-      APP_ENV: local
-      APP_DEBUG: 1
+      APP_ENV: production
+      APP_DEBUG: 0
       APP_KEY: base64:m47P1fipnc1ZmkGHAmMPeyPAQUiIv0hwXOmCyK+9VyM=
+      APP_URL: http://localhost:8000
+      VITE_SUPABASE_URL: https://lyekajendyjtenqtsikw.supabase.co
+      VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx5ZWthamVuZHlqdGVucXRzaWt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5NzcwOTIsImV4cCI6MjA3MzU1MzA5Mn0.LXOWMpdNiP-t9lVk20zuOQaIA5_-GcLUJF2TTavzR6E
       

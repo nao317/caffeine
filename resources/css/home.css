@@ -1,64 +1,97 @@
+/* bodyとカードは前回と同じ */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #a67c52, #d9b382);
-    /* 茶色→黄土色グラデ */
+    background: linear-gradient(135deg, #d4b183, #8b5e3c);
     height: 100vh;
-}
-
-.home-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+}
+
+.home-container {
+    background: #fdf6f0;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    width: 360px;
+    padding: 36px 24px; /* 横パディング少し減らす */
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px; /* 入力欄とボタンの間隔 */
+    color: #3b2f23;
     text-align: center;
-    color: #fff;
-    padding: 16px;
 }
 
 .home-container h1 {
-    font-size: 3rem;
-    margin-bottom: 16px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    font-size: 2rem;
+    margin-bottom: 8px;
 }
 
 .home-container p {
-    font-size: 1.2rem;
-    margin-bottom: 32px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    color: #5a4632;
+    margin-bottom: 24px;
 }
 
-.home-container .btn {
-    padding: 12px 24px;
-    margin: 8px;
-    font-size: 1rem;
-    border: none;
+/* 入力欄 */
+.home-container input {
+    width: 100%;          /* カード幅に揃える */
+    height: 48px;         /* 高さ統一 */
+    padding: 0 16px;
     border-radius: 8px;
+    border: 1px solid #8b5e3c;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.home-container input:focus {
+    border-color: #533b2c;
+    box-shadow: 0 0 6px rgba(83,59,44,0.4);
+}
+
+/* ボタン */
+.home-container .btn {
+    width: 100%;       /* カード幅に揃える */
+    height: 48px;      /* 入力欄と揃える */
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
     cursor: pointer;
     transition: all 0.2s;
+    margin-top: 8px;   /* ボタン間に余白 */
 }
 
 .home-container .btn-login {
-    background-color: #6b4f3c;
+    background: linear-gradient(90deg,#533b2c,#3b2f23);
     color: #fff;
 }
 
 .home-container .btn-login:hover {
-    background-color: #533b2c;
+    filter: brightness(1.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .home-container .btn-signup {
-    background-color: #d9b382;
-    color: #4b3b2a;
+    background: linear-gradient(90deg,#f5d092,#d9b382);
+    color: #3b2f23;
 }
 
 .home-container .btn-signup:hover {
-    background-color: #c0a566;
+    filter: brightness(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* 既存 home.css の最後に追加 */
+/* メッセージ */
 .error {
-    color: #ff4d4f;
-    margin-bottom: 16px;
+    color: #ef4444;
+    font-size: 0.9rem;
+}
+
+.success {
+    color: #16a34a;
+    font-size: 0.9rem;
 }
