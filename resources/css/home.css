@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #a67c52, #d9b382);
+    /* 茶色→黄土色グラデ */
+    height: 100vh;
+}
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    padding: 16px;
+}
+
+.home-container h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.home-container p {
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.home-container .btn {
+    padding: 12px 24px;
+    margin: 8px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.home-container .btn-login {
+    background-color: #6b4f3c;
+    color: #fff;
+}
+
+.home-container .btn-login:hover {
+    background-color: #533b2c;
+}
+
+.home-container .btn-signup {
+    background-color: #d9b382;
+    color: #4b3b2a;
+}
+
+.home-container .btn-signup:hover {
+    background-color: #c0a566;
+}
+
+/* 既存 home.css の最後に追加 */
+.error {
+    color: #ff4d4f;
+    margin-bottom: 16px;
+}
