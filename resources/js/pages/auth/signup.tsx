@@ -54,14 +54,14 @@ export default function Signup() {
             return;
         }
 
-        setMessage('登録完了！確認メールをチェックしてください。');
+        setMessage('登録完了！認証メールをチェックしてください。');
         Inertia.visit('/login');
     };
 
     return (
         <div className="home-container">
             <h1>サインアップ</h1>
-            <p>カフェ投稿を始めるにはアカウント登録してください。</p>
+            <p>投稿を始めるにはアカウント登録してください。</p>
 
             <form className="signup-form" onSubmit={handler_Submit}>
                 <input
