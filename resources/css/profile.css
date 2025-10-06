@@ -1,0 +1,201 @@
+
+.profile-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e1b18, #3a2e2b);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+    font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+    color: #e9e5df;
+}
+
+/* カード */
+.profile-card {
+    background: #2b2421;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 40px 32px;
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* タイトル */
+.profile-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+    color: #f5deb3;
+}
+
+/* アバター */
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: #4a3b35;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    color: #bba28a;
+    font-size: 2.5rem;
+}
+
+/* テキスト */
+.profile-username {
+    margin-top: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffddaa;
+}
+
+.profile-bio {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: #c9b8a9;
+    text-align: center;
+}
+
+/* 入力フォーム */
+.input-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #f0e3d1;
+}
+
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #5c4c45;
+    border-radius: 10px;
+    background-color: #3a2f2a;
+    color: #f5f2ee;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 0.95rem;
+    resize: none;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+    border-color: #d4a373;
+    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.3);
+    outline: none;
+}
+
+/* ボタン */
+.btn {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-edit {
+    background-color: #b47b52;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #9f6741;
+}
+
+.btn-dashboard {
+    background-color: #5f836d;
+    color: white;
+}
+
+.btn-dashboard:hover {
+    background-color: #4e6b5b;
+}
+
+.btn-logout {
+    background-color: #64554e;
+    color: #e6dcd1;
+}
+
+.btn-logout:hover {
+    background-color: #51433c;
+}
+
+.btn-save {
+    background-color: #7b9b7f;
+    color: #fff;
+}
+
+.btn-save:hover {
+    background-color: #66856b;
+}
+
+.btn-cancel {
+    background-color: #55463e;
+    color: #d8c5b4;
+}
+
+.btn-cancel:hover {
+    background-color: #453731;
+}
+
+/* ファイル選択 */
+.file-select {
+    background-color: #9a6a4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.file-select:hover {
+    background-color: #85573f;
+}
+
+.selected-file {
+    color: #bfa38b;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+/* ローディング */
+.loading-text {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1rem;
+    color: #bfa38b;
+}

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link, router } from "@inertiajs/react";
+import { supabase } from "@/lib/supabase";
 import "../../css/dashboard.css";
 
 export default function Header() {
-    const handleLogout = () => {
-        router.post("/logout");
+    const handleLogout = async () => {
+        await supabase.auth.signOut();
+        router.visit("/login");
     };
     return (
         <header className="dashboard-header">

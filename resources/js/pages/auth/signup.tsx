@@ -44,8 +44,8 @@ export default function Signup() {
                 {
                     id: user.id,
                     username,
-                    email,
-                    avatar_url: null
+                    avatar_url: null,
+                    bio: null
                 }
             ]);
 

@@ -10,6 +10,7 @@ type Profile = {
 type Post = {
     id: number;
     title: string;
+    image_url: string | null;
     created_at: string;
     profiles: Profile;
 };
@@ -29,6 +30,14 @@ export default function PostCard({ post }: { post: Post }) {
                 </div>
             </div>
             <p className="post-content">{post.title}</p>
+            {post.image_url && (
+                <img
+                    src={post.image_url}
+                    alt="投稿画像"
+                    className="post-image"
+                    style={{ width: '100%', maxWidth: '400px', height: 'auto', borderRadius: '8px', marginTop: '12px' }}
+                />
+            )}
         </div>
     );
 }
