@@ -15,6 +15,7 @@ type Profile = {
 type Post = {
     id: number;
     title: string;
+    image_url: string | null;
     created_at: string;
     user_id: string;
     profiles: Profile;
@@ -30,7 +31,7 @@ export default function Dashboard() {
     const fetchPosts = async () => {
         const { data, error } = await supabase
             .from("posts")
-            .select(`id, title, created_at, user_id, profiles ( id, username, avatar_url, bio )`)
+            .select(`id, title, image_url, created_at, user_id, profiles ( id, username, avatar_url, bio )`)
             .order("created_at", { ascending: false });
 
         if (error) console.error(error);
