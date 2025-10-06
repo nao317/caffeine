@@ -28,7 +28,7 @@ export default function Login() {
     return (
         <div className="home-container">
             <h1>ログイン</h1>
-            <p>カフェ投稿を楽しむにはログインしてください。</p>
+            <p>投稿を楽しむにはログインしてください。</p>
 
             <form onSubmit={handleLogin}>
                 <input
@@ -51,7 +51,7 @@ export default function Login() {
 
             <p style={{ marginTop: '24px', fontSize: '0.9rem' }}>
                 アカウントをお持ちでない方は
-                <Link href="/signup" style={{ color: '#fff', textDecoration: 'underline', marginLeft: '4px' }}>
+                <Link href="/signup" style={{ color: '#000', textDecoration: 'underline', marginLeft: '4px' }}>
                     サインアップ
                 </Link>
             </p>

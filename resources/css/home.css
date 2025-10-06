@@ -45,6 +45,7 @@ body {
     outline: none;
     box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 12px;
 }
 
 .home-container input:focus {

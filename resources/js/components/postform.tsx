@@ -36,17 +36,21 @@ export default function PostForm({ onPostCreated }: { onPostCreated: () => void 
         <form className="post-form" onSubmit={handleSubmit}>
             <textarea
                 className="post-input"
-                placeholder="今日のカフェ体験をシェアしよう ☕"
+                placeholder="今日行ったカフェやコーヒーをシェア"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
             <input
                 type="file"
                 accept="image/*"
+                className="fileImageInput"
                 onChange={(e) => setImage(e.target.files?.[0] || null)}
             />
+            <label htmlFor="file-upload" className="file-upload-label">
+                ファイルを選択
+            </label>
             <button type="submit" className="post-button">
-                投稿する
+                投稿
             </button>
         </form>
     );
