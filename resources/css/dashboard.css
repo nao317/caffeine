@@ -115,6 +115,14 @@ body {
     color: #fffaf3;
 }
 
+/* 選択されたファイル名 */
+.selected-file-name {
+    color: #bfa38b;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    text-align: center;
+}
+
 /* === 投稿ボタン === */
 .post-button {
     background: linear-gradient(90deg, #c49b66, #8b6f47);

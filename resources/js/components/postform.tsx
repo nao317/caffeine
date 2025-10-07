@@ -5,6 +5,13 @@ import "../../css/dashboard.css";
 export default function PostForm({ onPostCreated }: { onPostCreated: () => void }) {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState<File | null>(null);
+    
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0] || null;
+        console.log("ファイルが選択されました:", file?.name);
+        setImage(file);
+    };
+    
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const { data: user } = await supabase.auth.getUser();
@@ -28,6 +35,9 @@ export default function PostForm({ onPostCreated }: { onPostCreated: () => void 
         } else {
             setTitle("");
             setImage(null);
+            // ファイル入力をリセット
+            const fileInput = document.getElementById('file-upload') as HTMLInputElement;
+            if (fileInput) fileInput.value = '';
             onPostCreated();
         }
     };
@@ -41,14 +51,19 @@ export default function PostForm({ onPostCreated }: { onPostCreated: () => void 
                 onChange={(e) => setTitle(e.target.value)}
             />
             <input
+                id="file-upload"
                 type="file"
                 accept="image/*"
                 className="fileImageInput"
-                onChange={(e) => setImage(e.target.files?.[0] || null)}
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
             />
             <label htmlFor="file-upload" className="file-upload-label">
                 ファイルを選択
             </label>
+            {image && (
+                <p className="selected-file-name">選択済み: {image.name}</p>
+            )}
             <button type="submit" className="post-button">
                 投稿
             </button>
