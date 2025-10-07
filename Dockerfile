@@ -11,10 +11,14 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
-# Composerのインストール
+# 本番環境設定
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+
+# Composerのインストール（本番用）
 RUN composer install --no-dev --optimize-autoloader
 
-# Node.jsの依存関係をインストール（開発依存関係も含む）
+# Node.jsの依存関係をインストール
 RUN npm ci
 
 # フロントエンドアセットをビルド
@@ -23,5 +27,19 @@ RUN npm run build
 # 開発依存関係を削除してサイズを削減
 RUN npm prune --production
 
-# Render が 8080 を見に行くので artisan serve を使う
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+# キャッシュ最適化
+RUN php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache
+
+# パーミッション設定とディレクトリ作成
+RUN mkdir -p /app/storage/framework/cache \
+    /app/storage/framework/sessions \
+    /app/storage/framework/views \
+    /app/storage/logs \
+    /app/bootstrap/cache && \
+    chown -R www-data:www-data /app/storage /app/bootstrap/cache && \
+    chmod -R 775 /app/storage /app/bootstrap/cache
+
+# スタートスクリプトを使用
+CMD ["./start.sh"]
