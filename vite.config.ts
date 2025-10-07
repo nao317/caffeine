@@ -21,4 +21,8 @@ export default defineConfig({
         jsx: 'automatic',
     },
     base: '/',
+    build: {
+        outDir: 'public/build', // ← public/build に出力
+        emptyOutDir: true,
+    },
 });
