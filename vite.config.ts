@@ -20,9 +20,14 @@ export default defineConfig({
     esbuild: {
         jsx: 'automatic',
     },
-    base: '/',
     build: {
-        outDir: 'public/build', // ← public/build に出力
-        emptyOutDir: true,
+        manifest: true,
+        rollupOptions: {
+            output: {
+                assetFileNames: 'assets/[name]-[hash][extname]',
+                chunkFileNames: 'assets/[name]-[hash].js',
+                entryFileNames: 'assets/[name]-[hash].js',
+            },
+        },
     },
 });
